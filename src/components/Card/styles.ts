@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
+import { DragProps } from "../../types/StationProps";
 
-export const Container = styled.div`
+export const Container = styled.div<DragProps>`
     position: relative;
     background: #fff;
     border-radius: 5px;
@@ -27,6 +28,19 @@ export const Container = styled.div`
         border-radius: 2px;
         margin-top: 5px;
     }
+
+    ${props => props.isDragging && css`
+        border: 2px dashed rgba(0, 0, 0 ,0.20);
+        padding-top: 31px;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        cursor: grabbing;
+
+        p, img, span {
+            opacity: 0;
+        }
+    `}
 `;
 
 export const Label = styled.span`
