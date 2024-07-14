@@ -1,97 +1,194 @@
 export function loadLists() {
     return [
       { 
-        title: 'Tarefas', 
-        creatable: true,
+        title: 'Leads Iniciais', 
+        creatable: false,
         cards: [
           {
             id: 1,
-            content: 'Estudar módulo 01 de NodeJS',
-            labels: ['#7159c1'],
-            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4'
+            status: 'Em andamento',
+            statusColor: '#00bfff',
+            name: 'Priscila Santos',
+            course: 'SEMI 2024',
+            contacts: 1,
+            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4',
+            info: '',
+            labels: ['#7159c1']
           },
           {
             id: 2,
-            content: 'Criar vídeo para o Youtube ensinando a recriar a interface do Pipefy',
-            labels: ['#7159c1'],
-            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4'
+            status: 'Em andamento',
+            statusColor: '#00bfff',
+            name: 'Isa',
+            course: 'SEMI 2024',
+            contacts: 1,
+            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4',
+            info: 'CONTATO 1 15/07/2024 13:27',
+            labels: ['#7159c1']
           },
           {
             id: 3,
-            content: 'Estudar módulo 03 de React Native',
-            labels: ['#7159c1'],
-            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4'
+            status: 'Em andamento',
+            statusColor: '#00bfff',
+            name: 'Elizabeth Rodrigues',
+            course: 'SEMI 2024',
+            contacts: 1,
+            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4',
+            info: 'CONTATO 3 15/07/2024 13:27',
+            labels: ['#7159c1']
           },
           {
             id: 4,
-            content: 'Gravar Aula "NextJS: Utilizando server-side rendering com ReactJS"',
-            labels: ['#54e1f7'],
-            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4'
+            status: 'Em andamento',
+            statusColor: '#00bfff',
+            name: 'Gabriely Valério',
+            course: 'SEMI 2024',
+            contacts: 1,
+            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4',
+            info: '',
+            labels: ['#7159c1']
           },
           {
             id: 5,
-            content: 'Gravar testes e deploy ReactJS',
-            labels: ['#54e1f7'],
-            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4'
+            status: 'Em andamento',
+            statusColor: '#00bfff',
+            name: 'Murilo Inez Rosa da Silva',
+            course: 'SEMI 2024',
+            contacts: 1,
+            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4',
+            info: 'CONTATO 5 15/07/2024 13:27',
+            labels: ['#7159c1']
           },
         ]
       },
       { 
-        title: 'Fazendo', 
+        title: 'Qualificados', 
         creatable: false,
         cards: [
           {
             id: 6,
-            content: 'Recriando clone do Pipefy',
-            labels: [],
-            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4'
+            status: 'Em andamento',
+            statusColor: '#00bfff',
+            name: 'Recriando clone do Pipefy',
+            course: 'SEMI 2024',
+            contacts: 1,
+            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4',
+            info: 'CONTATO 6 15/07/2024 13:27',
+            labels: []
           }
         ]
       },
       { 
-        title: 'Pausado', 
+        title: 'Propostas Enviadas', 
         creatable: false,
         cards: [
           {
             id: 7,
-            content: 'Gravar sobre Geolocalização e mapas com React Native',
-            labels: ['#7159c1'],
-            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4'
+            status: 'Em andamento',
+            statusColor: '#00bfff',
+            name: 'Gravar sobre Geolocalização e mapas com React Native',
+            course: 'SEMI 2024',
+            contacts: 1,
+            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4',
+            info: '',
+            labels: ['#7159c1']
           },
           {
             id: 8,
-            content: 'Gravar testes e deploy ReactJS',
-            labels: ['#54e1f7'],
-            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4'
+            status: 'Em andamento',
+            statusColor: '#00bfff',
+            name: 'Gravar testes e deploy ReactJS',
+            course: 'SEMI 2024',
+            contacts: 1,
+            user: 'https://avatars.githubusercontent.com/u/132391248?s=400&u=907f6b1a4dd9d607bb417c27c9442aabc93e8f82&v=4',
+            info: 'CONTATO 8 15/07/2024 13:27',
+            labels: ['#54e1f7']
           },
           {
             id: 9,
-            content: 'Ajustes na biblioteca unform',
-            labels: [],
+            status: 'Em andamento',
+            statusColor: '#00bfff',
+            name: 'Ajustes na biblioteca unform',
+            course: 'SEMI 2024',
+            contacts: 1,
+            info: 'CONTATO 9 15/07/2024 13:27',
+            labels: []
           }
         ]
       },
       { 
-        title: 'Concluído', 
+        title: 'Negociações', 
+        creatable: false,
+        cards: [
+          {
+            id: 10,
+            status: 'Concluído',
+            statusColor: '#00bfff',
+            name: 'Gravar aula sobre deploy e CI com React Native',
+            course: 'SEMI 2024',
+            contacts: 1,
+            info: '',
+            labels: []
+          },
+          {
+            id: 12,
+            status: 'Concluído',
+            statusColor: '#00bfff',
+            name: 'Gravar testes e deploy ReactJS',
+            course: 'SEMI 2024',
+            contacts: 1,
+            info: 'CONTATO 12 15/07/2024 13:27',
+            labels: ['#54e1f7']
+          },
+          {
+            id: 13,
+            status: 'Concluído',
+            statusColor: '#00bfff',
+            name: 'Gravar Aula "Internacionalização de aplicações Node.js, ReactJS e React Native"',
+            course: 'SEMI 2024',
+            contacts: 1,
+            info: '',
+            labels: ['#7159c1']
+          }
+        ]
+      },
+      { 
+        title: 'Fechados', 
         creatable: false,
         done: true,
         cards: [
           {
-            id: 10,
-            content: 'Gravar aula sobre deploy e CI com React Native',
-            labels: [],
+            id: 14,
+            status: 'Concluído',
+            statusColor: '#00bfff',
+            name: 'Maria Silva',
+            course: 'Marketing Digital',
+            contacts: 2,
+            info: 'Fechado em 15/07/2024',
+            labels: ['#ff6347']
           },
           {
-            id: 12,
-            content: 'Gravar testes e deploy ReactJS',
-            labels: ['#54e1f7'],
+            id: 15,
+            status: 'Concluído',
+            statusColor: '#00bfff',
+            name: 'Carlos Eduardo',
+            course: 'Desenvolvimento Web',
+            contacts: 3,
+            info: 'Fechado em 12/07/2024',
+            labels: ['#32cd32']
           },
           {
-            id: 13,
-            content: 'Gravar Aula "Internacionalização de aplicações Node.js, ReactJS e React Native"',
-            labels: ['#7159c1'],
+            id: 16,
+            status: 'Concluído',
+            statusColor: '#00bfff',
+            name: 'Ana Beatriz',
+            course: 'Design Gráfico',
+            contacts: 1,
+            info: 'Fechado em 10/07/2024',
+            labels: ['#ff6347']
           }
         ]
-      },
+      }
     ];
   }
+  

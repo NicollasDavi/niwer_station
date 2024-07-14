@@ -1,9 +1,10 @@
 import React, { useRef, useContext } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
+import { FaStar, FaUser, FaRegCalendarAlt } from 'react-icons/fa';
 
 import BoardContext from '../Board/context';
 
-import { Container, Label } from './styles';
+import { Container, Label, Status, Info } from './styles';
 import { CardProps } from '../../types/StationProps';
 
 interface DragItem {
@@ -13,7 +14,7 @@ interface DragItem {
   listIndex: number;
 }
 
-const Card = ({ data, index, listIndex }: { data: CardProps, index: number, listIndex: number }) => {
+const Card: React.FC<{ data: CardProps, index: number, listIndex: number }> = ({ data, index, listIndex }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { move } = useContext(BoardContext);
 
@@ -28,8 +29,12 @@ const Card = ({ data, index, listIndex }: { data: CardProps, index: number, list
   const [, drop] = useDrop({
     accept: 'CARD',
     hover(item: DragItem, monitor) {
+      if (!ref.current) {
+        return;
+      }
+
       const draggedListIndex = item.listIndex;
-      const targetListIndex = listIndex
+      const targetListIndex = listIndex;
 
       const draggedIndex = item.index;
       const targetIndex = index;
@@ -38,11 +43,15 @@ const Card = ({ data, index, listIndex }: { data: CardProps, index: number, list
         return;
       }
 
-      const targetSize = ref.current!.getBoundingClientRect();
+      const targetSize = ref.current.getBoundingClientRect();
       const targetCenter = (targetSize.bottom - targetSize.top) / 2;
 
       const draggerOffset = monitor.getClientOffset();
-      const draggedTop = draggerOffset!.y - targetSize.top;
+      if (!draggerOffset) {
+        return;
+      }
+
+      const draggedTop = draggerOffset.y - targetSize.top;
 
       if (draggedIndex < targetIndex && draggedTop < targetCenter) {
         return;
@@ -54,8 +63,8 @@ const Card = ({ data, index, listIndex }: { data: CardProps, index: number, list
 
       move(draggedListIndex, targetListIndex, draggedIndex, targetIndex);
 
-      item.index = targetIndex
-      item.listIndex = targetListIndex
+      item.index = targetIndex;
+      item.listIndex = targetListIndex;
     },
   });
 
@@ -64,10 +73,20 @@ const Card = ({ data, index, listIndex }: { data: CardProps, index: number, list
   return (
     <Container ref={ref} isDragging={isDragging}>
       <header>
-        {data.labels.map(label => <Label key={label} color={label} />)}
+        <Status color={data.statusColor}><span />{data.status}</Status>
+        <span>i</span>
       </header>
-      <p>{data.content}</p>
-      {data.user && <img src={data.user} alt="" />}
+      <p>{data.name}</p>
+      <span>{data.course}</span>
+      <footer>
+        <span><FaStar /> {data.contacts}</span>
+        <span><FaUser /> {data.contacts}</span>
+      </footer>
+      <Info>
+        {data.info !== "" ? <FaRegCalendarAlt /> : '+'}
+
+        {data.info !== "" ? data.info : "Criar tarefa"}
+      </Info>
     </Container>
   );
 }
