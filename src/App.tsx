@@ -6,11 +6,13 @@ import GlobalStyle from './styles/global'
 
 import Header from './components/Header'
 import Board from './components/Board'
+import FilterList from './components/FilterList';
 
 function App() {
   return (
     <DndProvider backend={HTML5Backend}>
       <Header/>
+      <FilterList/>
       <Board />
 
       <GlobalStyle/>

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
   * {
     margin: 0;
@@ -16,13 +16,51 @@ export default createGlobalStyle`
   }
 
   body {
-    font: 14px 'Open Sans', sans-serif;
-    background: #ecf1f8;
+    font: 14px 'Roboto', sans-serif;
     color: #333;
     -webkit-font-smoothing: antialiased !important;
   }
 
   ul {
     list-style: none;
+  }
+
+  /* Estilos personalizados para a barra de rolagem */
+  .custom-scrollbar {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .custom-scrollbar-content {
+    overflow-y: scroll;
+    height: 100%;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .custom-scrollbar-content::-webkit-scrollbar {
+    width: 0; /* Chrome, Safari, Opera */
+  }
+
+  .custom-scrollbar-track {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    bottom: 2px;
+    width: 8px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+
+  .custom-scrollbar-thumb {
+    position: absolute;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .custom-scrollbar-track:hover .custom-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.7);
   }
 `;

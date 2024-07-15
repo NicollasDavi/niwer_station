@@ -15,7 +15,7 @@ const Header: React.FC = () => {
         <Logo>
           <img src="https://via.placeholder.com/40" alt="Logo" />
           <div className="text">
-            <h1>Niwer Station</h1>
+            <h1>ND Station</h1>
             <span>CRM</span>
           </div>
         </Logo>

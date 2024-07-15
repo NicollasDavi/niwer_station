@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 65px;
-  padding: 0 30px;
+  padding: 0 20px;
   background: #fff;
   color: #7159c1;
   display: flex;
@@ -28,7 +28,7 @@ export const Logo = styled.div`
     line-height: 1.2;
 
     h1 {
-      font-size: 24px;
+      font-size: 18px;
       color: #000;
       margin: 0;
       font-weight: 700;
@@ -64,7 +64,7 @@ export const Menu = styled.ul`
       text-decoration: none;
       color: inherit;
       position: relative;
-      padding: 10px 0;
+      padding: 20px 0;
 
       &.active {
         color: #00aaff;

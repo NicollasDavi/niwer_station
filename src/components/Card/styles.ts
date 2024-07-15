@@ -6,11 +6,11 @@ export const Container = styled.div<DragProps>`
   background: #fff;
   border-radius: 5px;
   margin-bottom: 10px;
-  padding: 10px 15px;
+  padding: 10px 10px;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
   cursor: grab;
   transition: box-shadow 0.2s;
-  width: 350px;
+  width: 330px;
   max-width: 100%;
   border: 0.6px solid #D3D3D3;
 

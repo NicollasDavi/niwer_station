@@ -1,13 +1,10 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useContext, useState } from 'react';
 import { MdAdd } from 'react-icons/md';
 import { useDrop } from 'react-dnd';
-import PerfectScrollbar from 'perfect-scrollbar';
-import 'perfect-scrollbar/css/perfect-scrollbar.css';
-
-import Card from '../Card';
 import { Container, Space } from './styles';
 import { List as ListProps } from '../../types/StationProps';
 import BoardContext from '../Board/context';
+import Card from '../Card';
 
 interface Props {
   data: ListProps;
@@ -15,17 +12,49 @@ interface Props {
 }
 
 const ListComponent: React.FC<Props> = ({ data, listIndex }) => {
-  const scrollRef = useRef<HTMLUListElement>(null);
+  const [isTopShadow, setIsTopShadow] = useState(false);
+  const [isBottomShadow, setIsBottomShadow] = useState(false);
+  const [showScrollbar, setShowScrollbar] = useState(false);
+  const [thumbHeight, setThumbHeight] = useState(0);
+  const [thumbTop, setThumbTop] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLUListElement>(null);
   const { move } = useContext(BoardContext);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      const ps = new PerfectScrollbar(scrollRef.current);
+    const handleScroll = () => {
+      if (contentRef.current) {
+        const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
+        setIsTopShadow(scrollTop > 0);
+        setIsBottomShadow(scrollTop + clientHeight < scrollHeight);
+
+        const thumbHeight = (clientHeight / scrollHeight) * clientHeight;
+        const thumbTop = (scrollTop / scrollHeight) * clientHeight;
+        setThumbHeight(thumbHeight);
+        setThumbTop(thumbTop);
+      }
+    };
+
+    if (contentRef.current) {
+      contentRef.current.addEventListener('scroll', handleScroll);
+      handleScroll(); // Run on mount to set initial shadows
+
       return () => {
-        ps.destroy();
+        contentRef.current?.removeEventListener('scroll', handleScroll);
       };
     }
-  }, []);
+  }, [data.cards]);
+
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (contentRef.current) {
+        const { scrollHeight, clientHeight } = contentRef.current;
+        setShowScrollbar(scrollHeight > clientHeight);
+      }
+    };
+
+    checkOverflow();
+  }, [data.cards]);
 
   const [, drop] = useDrop({
     accept: 'CARD',
@@ -38,7 +67,6 @@ const ListComponent: React.FC<Props> = ({ data, listIndex }) => {
           return;
         }
 
-        console.log(`Moving card from list ${draggedListIndex}, index ${item.index} to list ${targetListIndex}, index 0`);
         move(draggedListIndex, targetListIndex, item.index, 0);
         item.index = 0;
         item.listIndex = targetListIndex;
@@ -47,29 +75,45 @@ const ListComponent: React.FC<Props> = ({ data, listIndex }) => {
   });
 
   return (
-    <Container ref={drop} done={data.done}>
+    <Container
+      ref={drop}
+      done={data.done}
+      className={`${isTopShadow ? 'top-shadow' : ''} ${isBottomShadow ? 'bottom-shadow' : ''}`}
+    >
+       <Space />
       <header>
-        <h2>{data.title}</h2>
-        {data.creatable && (
-          <button type='button'>
-            <MdAdd size={24} color='#fff' />
-          </button>
-        )}
+          <h2>{data.title}</h2>
+          {data.creatable && (
+            <button type='button'>
+              <MdAdd size={24} color='#fff' />
+            </button>
+          )}
+       
       </header>
-
-      <ul ref={scrollRef}>
-        <Space/>
-        {Array.isArray(data.cards) && data.cards.map((card, index) => (
-          card && (
-            <Card
-              key={card.id}
-              listIndex={listIndex}
-              index={index}
-              data={card}
-            />
-          )
-        ))}
-      </ul>
+      <Space />
+      <div className="custom-scrollbar" ref={scrollRef}>
+        <ul className="custom-scrollbar-content" ref={contentRef}>
+          <Space />
+          {Array.isArray(data.cards) && data.cards.map((card, index) => (
+            card && (
+              <Card
+                key={card.id}
+                listIndex={listIndex}
+                index={index}
+                data={card}
+              />
+            )
+          ))}
+        </ul>
+        {showScrollbar && (
+          <div className="custom-scrollbar-track">
+            <div
+              className="custom-scrollbar-thumb"
+              style={{ height: `${thumbHeight}px`, top: `${thumbTop}px` }}
+            ></div>
+          </div>
+        )}
+      </div>
     </Container>
   );
 }
