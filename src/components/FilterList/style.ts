@@ -24,8 +24,8 @@ export const Button = styled.button`
   align-items: center;
   justify-content: space-evenly;
   padding: 10px 20px;
-  background: #00c4cc;
-  color: #000;
+  background: #7024FF;
+  color: #fff;
   border: none;
   border-radius: 1px;
   font-weight: bold;
@@ -54,8 +54,8 @@ export const ListButton = styled.div`
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: #00c4cc;
-    color: black;
+    background: #7024FF;
+    color: #fff;
     border: 0.6px solid #D3D3D3;
     border-radius: 1px 0 0 1px;
     cursor: pointer;
@@ -64,7 +64,7 @@ export const ListButton = styled.div`
     &:last-child {
       border-radius: 0 4px 4px 0;
       background: #fff;
-      color: #00c4cc;
+      color: #7024FF;
     }
 
     &:hover {

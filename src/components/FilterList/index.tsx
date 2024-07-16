@@ -1,12 +1,19 @@
-import React from 'react';
-import { FiltersContainer, ButtonsContainer, Button, IconButton, ListButton, Total } from './style';
+// src/components/FilterList/index.tsx
+import React, { useState } from 'react';
+import { FiltersContainer, ButtonsContainer, Button, ListButton, Total } from './style';
 import Filter from '../Filter';
-import { MdFilterList, MdBarChart, MdSync, MdAdd } from 'react-icons/md';
-
+import { MdBarChart, MdAdd } from 'react-icons/md';
 import { FaList } from "react-icons/fa";
-
+import CreateLeadForm from '../CreateLeadForm';
 
 const FilterList = () => {
+  const [isAsideOpen, setIsAsideOpen] = useState(false);
+  const lists = ["List 1", "List 2", "List 3"]; // Suas listas existentes
+
+  const handleCreateLead = (lead: { name: string; phone: string; email: string; cpf: string; company: string; position: string; list: string }) => {
+    console.log('Novo lead:', lead);
+  };
+
   return (
     <>
       <ButtonsContainer>
@@ -14,7 +21,7 @@ const FilterList = () => {
           <div><MdBarChart size={24} /></div>
           <div><FaList size={18} /></div>
         </ListButton>
-        <Button>
+        <Button onClick={() => setIsAsideOpen(true)}>
           <MdAdd size={24} />
           Criar
         </Button>
@@ -28,6 +35,13 @@ const FilterList = () => {
       <Total>
         3321 Negociações
       </Total>
+
+      <CreateLeadForm 
+        onSubmit={handleCreateLead} 
+        onClose={() => setIsAsideOpen(false)} 
+        lists={lists} 
+        isOpen={isAsideOpen} 
+      />
     </>
   );
 };

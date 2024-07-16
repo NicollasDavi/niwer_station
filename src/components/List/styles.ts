@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { ContainerProps } from '../../types/StationProps';
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.div<{ $done?: boolean }>`
   padding: 0 0 5px 6px;
   height: 85%;
   flex: 0 0 320px;
-  opacity: ${props => (props.done ? 0.6 : 1)};
+  opacity: ${props => (props.$done ? 0.6 : 1)};
   background: #f4f4f4;
   border-radius: 3px;
   display: flex;
@@ -102,13 +101,14 @@ export const Container = styled.div<ContainerProps>`
     height: 60px; /* Aumenta a altura da sombra */
     box-shadow: inset 0 -40px 40px 0 rgba(244, 244, 244, 1); /* Aumenta a intensidade e altura da sombra */
     pointer-events: none;
-}
-
-
-
+  }
 `;
 
 export const Space = styled.section`
   width: 330px;
   height: 2px;
 `;
+
+export interface ContainerProps {
+  $done?: boolean;
+}

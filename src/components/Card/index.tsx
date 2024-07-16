@@ -71,7 +71,7 @@ const Card: React.FC<{ data: CardProps, index: number, listIndex: number }> = ({
   drag(drop(ref));
 
   return (
-    <Container ref={ref} isDragging={isDragging}>
+    <Container ref={ref} data-is-dragging={isDragging}>
       <header>
         <Status color={data.statusColor}><span />{data.status}</Status>
         <span>i</span>
@@ -84,7 +84,6 @@ const Card: React.FC<{ data: CardProps, index: number, listIndex: number }> = ({
       </footer>
       <Info>
         {data.info !== "" ? <FaRegCalendarAlt /> : '+'}
-
         {data.info !== "" ? data.info : "Criar tarefa"}
       </Info>
     </Container>

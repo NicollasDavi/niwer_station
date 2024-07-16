@@ -59,14 +59,26 @@ const ListComponent: React.FC<Props> = ({ data, listIndex }) => {
   const [, drop] = useDrop({
     accept: 'CARD',
     hover(item: any, monitor) {
-      if (!data.cards.length) {
-        const draggedListIndex = item.listIndex;
-        const targetListIndex = listIndex;
+      if (!contentRef.current) {
+        return;
+      }
 
-        if (draggedListIndex === targetListIndex) {
-          return;
-        }
+      const draggedListIndex = item.listIndex;
+      const targetListIndex = listIndex;
 
+      if (draggedListIndex === targetListIndex) {
+        return;
+      }
+
+      const { y: draggedOffsetY } = monitor.getClientOffset() || { y: 0 };
+      const { top, bottom } = contentRef.current.getBoundingClientRect();
+      const middleY = (bottom - top) / 2;
+
+      if (draggedOffsetY > middleY) {
+        move(draggedListIndex, targetListIndex, item.index, data.cards.length);
+        item.index = data.cards.length;
+        item.listIndex = targetListIndex;
+      } else {
         move(draggedListIndex, targetListIndex, item.index, 0);
         item.index = 0;
         item.listIndex = targetListIndex;
@@ -77,18 +89,17 @@ const ListComponent: React.FC<Props> = ({ data, listIndex }) => {
   return (
     <Container
       ref={drop}
-      done={data.done}
+      $done={data.done} // Usar $done em vez de done
       className={`${isTopShadow ? 'top-shadow' : ''} ${isBottomShadow ? 'bottom-shadow' : ''}`}
     >
-       <Space />
+      <Space />
       <header>
-          <h2>{data.title}</h2>
-          {data.creatable && (
-            <button type='button'>
-              <MdAdd size={24} color='#fff' />
-            </button>
-          )}
-       
+        <h2>{data.title}</h2>
+        {data.creatable && (
+          <button type='button'>
+            <MdAdd size={24} color='#fff' />
+          </button>
+        )}
       </header>
       <Space />
       <div className="custom-scrollbar" ref={scrollRef}>

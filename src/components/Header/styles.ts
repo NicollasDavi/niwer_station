@@ -67,7 +67,7 @@ export const Menu = styled.ul`
       padding: 20px 0;
 
       &.active {
-        color: #00aaff;
+        color: #7024FF;
         font-weight: bold;
       }
 
@@ -78,7 +78,7 @@ export const Menu = styled.ul`
         bottom: -5px;
         height: 2px;
         width: 100%;
-        background: #00aaff;
+        background: #7024FF;
       }
 
       &:hover {

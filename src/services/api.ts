@@ -7,7 +7,7 @@ export function loadLists() {
           {
             id: 1,
             status: 'Em andamento',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Priscila Santos',
             course: 'SEMI 2024',
             contacts: 1,
@@ -18,7 +18,7 @@ export function loadLists() {
           {
             id: 2,
             status: 'Em andamento',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Isa',
             course: 'SEMI 2024',
             contacts: 1,
@@ -29,7 +29,7 @@ export function loadLists() {
           {
             id: 3,
             status: 'Em andamento',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Elizabeth Rodrigues',
             course: 'SEMI 2024',
             contacts: 1,
@@ -40,7 +40,7 @@ export function loadLists() {
           {
             id: 4,
             status: 'Em andamento',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Gabriely Valério',
             course: 'SEMI 2024',
             contacts: 1,
@@ -51,7 +51,7 @@ export function loadLists() {
           {
             id: 5,
             status: 'Em andamento',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Murilo Inez Rosa da Silva',
             course: 'SEMI 2024',
             contacts: 1,
@@ -68,7 +68,7 @@ export function loadLists() {
           {
             id: 6,
             status: 'Em andamento',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Recriando clone do Pipefy',
             course: 'SEMI 2024',
             contacts: 1,
@@ -85,7 +85,7 @@ export function loadLists() {
           {
             id: 7,
             status: 'Em andamento',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Gravar sobre Geolocalização e mapas com React Native',
             course: 'SEMI 2024',
             contacts: 1,
@@ -96,7 +96,7 @@ export function loadLists() {
           {
             id: 8,
             status: 'Em andamento',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Gravar testes e deploy ReactJS',
             course: 'SEMI 2024',
             contacts: 1,
@@ -107,7 +107,7 @@ export function loadLists() {
           {
             id: 9,
             status: 'Em andamento',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Ajustes na biblioteca unform',
             course: 'SEMI 2024',
             contacts: 1,
@@ -123,7 +123,7 @@ export function loadLists() {
           {
             id: 10,
             status: 'Concluído',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Gravar aula sobre deploy e CI com React Native',
             course: 'SEMI 2024',
             contacts: 1,
@@ -133,7 +133,7 @@ export function loadLists() {
           {
             id: 12,
             status: 'Concluído',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Gravar testes e deploy ReactJS',
             course: 'SEMI 2024',
             contacts: 1,
@@ -143,7 +143,7 @@ export function loadLists() {
           {
             id: 13,
             status: 'Concluído',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Gravar Aula "Internacionalização de aplicações Node.js, ReactJS e React Native"',
             course: 'SEMI 2024',
             contacts: 1,
@@ -160,7 +160,7 @@ export function loadLists() {
           {
             id: 14,
             status: 'Concluído',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Maria Silva',
             course: 'Marketing Digital',
             contacts: 2,
@@ -170,7 +170,7 @@ export function loadLists() {
           {
             id: 15,
             status: 'Concluído',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Carlos Eduardo',
             course: 'Desenvolvimento Web',
             contacts: 3,
@@ -180,7 +180,7 @@ export function loadLists() {
           {
             id: 16,
             status: 'Concluído',
-            statusColor: '#00bfff',
+            statusColor: '#7024FF',
             name: 'Ana Beatriz',
             course: 'Design Gráfico',
             contacts: 1,

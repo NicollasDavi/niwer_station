@@ -24,7 +24,7 @@ export interface List {
 }
 
 export interface ContainerProps {
-  done?: boolean;
+  done?: boolean
 }
 
 export interface DragProps {
